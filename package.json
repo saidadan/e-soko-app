@@ -18,6 +18,7 @@
     "bcryptjs": "^2.4.3",
     "chart.js": "^3.4.1",
     "cloudinary": "^1.26.2",
+    "eslint-plugin-react-hooks": "^4.5.0-next-354772952-20220420",
     "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.2",
@@ -33,6 +34,7 @@
     "streamifier": "^0.1.1"
   },
   "devDependencies": {
+    "dotenv": "^16.0.0",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1"
   }

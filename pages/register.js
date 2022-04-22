@@ -33,7 +33,7 @@ export default function Register() {
     if (userInfo) {
       router.push('/');
     }
-  }, []);
+  }, [router, userInfo]);
 
   const classes = useStyles();
   const submitHandler = async ({ name, email, password, confirmPassword }) => {
@@ -43,7 +43,7 @@ export default function Register() {
       return;
     }
     try {
-      const { data } = await axios.post('/api/users/register', {
+      const { data } = await axios.post('/api/users/register/', {
         name,
         email,
         password,
