@@ -33,7 +33,7 @@ const prices = [
     value: '51-200',
   },
   {
-    name: '$201 to $1000',
+    name: '$201 to Ksh 1000',
     value: '201-1000',
   },
 ];
@@ -258,7 +258,7 @@ export async function getServerSideProps({ query }) {
           },
         }
       : {};
-  // 10-50
+  // 100-5000
   const priceFilter =
     price && price !== 'all'
       ? {

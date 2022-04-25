@@ -1,9 +1,4 @@
 module.exports = {
-  reactStrictMode: false,
+  reactStrictMode: true,
   images: { domains: ['res.cloudinary.com'] },
-  resolve: {
-    fallback: {
-      "fs": false,
-    },
-  },
 };

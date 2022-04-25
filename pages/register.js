@@ -33,7 +33,7 @@ export default function Register() {
     if (userInfo) {
       router.push('/');
     }
-  }, [router, userInfo]);
+  }, []);
 
   const classes = useStyles();
   const submitHandler = async ({ name, email, password, confirmPassword }) => {
@@ -42,15 +42,19 @@ export default function Register() {
       enqueueSnackbar("Passwords don't match", { variant: 'error' });
       return;
     }
+
+    else{
+      enqueueSnackbar("Successfully registered and logged in", { variant: 'success' });
+    }
     try {
-      const { data } = await axios.post('/api/users/register/', {
+      const { data } = await axios.post('/api/users/register', {
         name,
         email,
         password,
       });
       dispatch({ type: 'USER_LOGIN', payload: data });
       Cookies.set('userInfo', data);
-      router.push(redirect || '/');
+      router.push(redirect || 'login');
     } catch (err) {
       enqueueSnackbar(getError(err), { variant: 'error' });
     }

@@ -36,6 +36,8 @@ import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
 import axios from 'axios';
 import { useEffect } from 'react';
+import Image from 'next/image';
+import logo from '../public/images/e-soko.png' 
 
 export default function Layout({ title, description, children }) {
   const router = useRouter();
@@ -144,7 +146,9 @@ export default function Layout({ title, description, children }) {
               </IconButton>
               <NextLink href="/" passHref>
                 <Link>
-                  <Typography className={classes.brand}>e-soko</Typography>
+                  <Typography className={classes.brand}>
+                    <Image src={logo} alt="logo" height={55} width={55} />
+                  </Typography>
                 </Link>
               </NextLink>
             </Box>

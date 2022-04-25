@@ -23,7 +23,6 @@ import { getError } from '../../utils/error';
 import { Store } from '../../utils/Store';
 import Layout from '../../components/Layout';
 import useStyles from '../../utils/styles';
-
 function reducer(state, action) {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -36,19 +35,16 @@ function reducer(state, action) {
       state;
   }
 }
-
 function AdminOrders() {
   const { state } = useContext(Store);
   const router = useRouter();
   const classes = useStyles();
   const { userInfo } = state;
-
   const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
     loading: true,
     orders: [],
     error: '',
   });
-
   useEffect(() => {
     if (!userInfo) {
       router.push('/login');
@@ -103,7 +99,6 @@ function AdminOrders() {
                   Orders
                 </Typography>
               </ListItem>
-
               <ListItem>
                 {loading ? (
                   <CircularProgress />

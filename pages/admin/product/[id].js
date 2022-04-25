@@ -22,7 +22,6 @@ import Layout from '../../../components/Layout';
 import useStyles from '../../../utils/styles';
 import { Controller, useForm } from 'react-hook-form';
 import { useSnackbar } from 'notistack';
-
 function reducer(state, action) {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -47,12 +46,10 @@ function reducer(state, action) {
       };
     case 'UPLOAD_FAIL':
       return { ...state, loadingUpload: false, errorUpload: action.payload };
-
     default:
       return state;
   }
 }
-
 function ProductEdit({ params }) {
   const productId = params.id;
   const { state } = useContext(Store);
@@ -71,7 +68,6 @@ function ProductEdit({ params }) {
   const router = useRouter();
   const classes = useStyles();
   const { userInfo } = state;
-
   useEffect(() => {
     if (!userInfo) {
       return router.push('/login');
@@ -120,7 +116,6 @@ function ProductEdit({ params }) {
       enqueueSnackbar(getError(err), { variant: 'error' });
     }
   };
-
   const submitHandler = async ({
     name,
     slug,
@@ -443,7 +438,6 @@ function ProductEdit({ params }) {
                         )}
                       ></Controller>
                     </ListItem>
-
                     <ListItem>
                       <Button
                         variant="contained"
@@ -465,11 +459,9 @@ function ProductEdit({ params }) {
     </Layout>
   );
 }
-
 export async function getServerSideProps({ params }) {
   return {
     props: { params },
   };
 }
-
 export default dynamic(() => Promise.resolve(ProductEdit), { ssr: false });

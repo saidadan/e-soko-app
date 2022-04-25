@@ -24,7 +24,6 @@ import { Store } from '../../utils/Store';
 import Layout from '../../components/Layout';
 import useStyles from '../../utils/styles';
 import { useSnackbar } from 'notistack';
-
 function reducer(state, action) {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -51,13 +50,11 @@ function reducer(state, action) {
       state;
   }
 }
-
 function AdminProdcuts() {
   const { state } = useContext(Store);
   const router = useRouter();
   const classes = useStyles();
   const { userInfo } = state;
-
   const [
     { loading, error, products, loadingCreate, successDelete, loadingDelete },
     dispatch,
@@ -66,7 +63,6 @@ function AdminProdcuts() {
     products: [],
     error: '',
   });
-
   useEffect(() => {
     if (!userInfo) {
       router.push('/login');
@@ -88,7 +84,6 @@ function AdminProdcuts() {
       fetchData();
     }
   }, [successDelete]);
-
   const { enqueueSnackbar } = useSnackbar();
   const createHandler = async () => {
     if (!window.confirm('Are you sure?')) {
@@ -179,7 +174,6 @@ function AdminProdcuts() {
                   </Grid>
                 </Grid>
               </ListItem>
-
               <ListItem>
                 {loading ? (
                   <CircularProgress />
@@ -206,7 +200,7 @@ function AdminProdcuts() {
                               {product._id.substring(20, 24)}
                             </TableCell>
                             <TableCell>{product.name}</TableCell>
-                            <TableCell>Ksh {product.price}</TableCell>
+                            <TableCell>${product.price}</TableCell>
                             <TableCell>{product.category}</TableCell>
                             <TableCell>{product.countInStock}</TableCell>
                             <TableCell>{product.rating}</TableCell>

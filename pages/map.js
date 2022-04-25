@@ -81,9 +81,9 @@ function Map() {
     placeRef.current = place;
   };
   const onPlacesChanged = () => {
-    const place = placeRef.current.getPlaces()[0]?.geometry.location;
-    setCenter({ lat: place?.lat(), lng: place?.lng() });
-    setLocation({ lat: place?.lat(), lng: place?.lng() });
+    const place = placeRef.current.getPlaces()[0].geometry.location;
+    setCenter({ lat: place.lat(), lng: place.lng() });
+    setLocation({ lat: place.lat(), lng: place.lng() });
   };
   const onConfirm = () => {
     const places = placeRef.current.getPlaces();
